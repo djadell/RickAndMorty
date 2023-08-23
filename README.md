@@ -6,28 +6,29 @@ MVP using the Rick and Morty API
 ## API ⚙️
 https://rickandmortyapi.com/
 
-## Arquitectura 🛠️
-- La arquitectura utilizada es Clean Arquitecture con MVVM, al ser un proyecto pequeño veo que no es necesaria una como VIPER.
-- Concurrencia hecha con async/await.
-- Vistas hechas con SnapKit, UIKit y Combine para el bindeo de datos.
-- [Fastlane](https://fastlane.tools/) para el despliuegue de versiones en TestFlight y preparado para utilizarse en una CI (CircleCI). También lo lo utilizaría para la gestión de certificados y Provisionings.
+## Architecture 🛠️
+- The architecture used is Clean Architecture and MVVM.
+- I used async/await for Concurrency.
+- Views made with SnapKit, UIKit and Combine for data binding.
+- [Fastlane](https://fastlane.tools/) Fastlane for the deployment of versions in TestFlight and ready to be used in a CI (CircleCI, Bitrise...). I would also use it for the management of Apple certificates and Provisionings.
 
-## Librerías / Dependencias 📦
-| Librería | Version min | Notas |
+## External dependencies 📦
+| Library | Min Version | Notes |
 |----------|----------------|---------------|
-|Resolver|1.5.0|  Injección de dependencias |
-|KingFisher|7.6.2| Gestor de imágenes (descarga y cache) |
-|SnapKit|5.6.0|  Generador de vistas con autolayout |
+|Resolver|1.5.0|  Dependency injection |
+|KingFisher|7.6.2| Image manager (download and cache) |
+|SnapKit|5.6.0|  View generator with autolayout |
 
 ## UI Tests 🔨
-Test de interfaz automatizados con Maestro https://maestro.mobile.dev/getting-started/installing-maestro
-### Pasos para ejecutarlo
-- Instalar Maestro en el ordenador
-- ir al directorio de `uiTesting`
-- Ejecutar el comando:
+Automated interface tests with Maestro https://maestro.mobile.dev/getting-started/installing-maestro
+### Steps to run it
+- Install Maestro on the computer (see official documentation)
+- Go to directory `uiTesting`
+- Run the following command:
 ```
 maestro test scroll_tap_detail_test.yaml
 ```
 
-## Futuras mejoras 🚀
-* Agregaría alguna SDKs para la gestión de Bugs en Producción de forma adicional a los informes de Crash de Apple. Por ejemplo: **Bugsnag** [Bugsnag](https://www.bugsnag.com/) o **Crashlytics** y **Analytics** de [Firebase](https://firebase.google.com/) para tener un mayor control de los crashes y informes de estabilidad en los despliegues, además de las analíticas de la App Store.
+## Future improvements 🚀
+- I would add some SDKs for Production Bug or Crash handling in addition to Apple Crash reporting. For example: **Bugsnag** [Bugsnag](https://www.bugsnag.com/) or **Crashlytics** and **Analytics** from [Firebase](https://firebase.google.com/ )
+- I would add [Tuist](https://tuist.io/) to reduce conflicts in project changes `.pbxproj` and improve build speed and automation in the CI.

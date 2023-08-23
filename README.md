@@ -27,7 +27,7 @@ Test de interfaz automatizados con Maestro https://maestro.mobile.dev/getting-st
 - Ejecutar el comando:
 ```
 maestro test scroll_tap_detail_test.yaml
-``
+```
 
 ## Futuras mejoras 🚀
 * Agregaría alguna SDKs para la gestión de Bugs en Producción de forma adicional a los informes de Crash de Apple. Por ejemplo: **Bugsnag** [Bugsnag](https://www.bugsnag.com/) o **Crashlytics** y **Analytics** de [Firebase](https://firebase.google.com/) para tener un mayor control de los crashes y informes de estabilidad en los despliegues, además de las analíticas de la App Store.

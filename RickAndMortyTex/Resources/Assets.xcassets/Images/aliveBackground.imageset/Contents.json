@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "DeadBackground.jpeg",
+      "filename" : "aliveBackground.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "DeadBackground@2x.jpeg",
+      "filename" : "aliveBackground@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "DeadBackground@3x.jpeg",
+      "filename" : "aliveBackground@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

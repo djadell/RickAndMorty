@@ -8,7 +8,7 @@ final class CharacterCell: UICollectionViewCell {
     
     // MARK: LifeCycle
     override func prepareForReuse() {
-        ui.imageView.alpha = 0.0
+        ui.imageView.alpha = 0.4
         ui.imageView.image = nil
         ui.nameLabel.text = nil
         ui.spinner.startSpinning()

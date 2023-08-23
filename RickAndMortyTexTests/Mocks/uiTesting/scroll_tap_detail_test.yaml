@@ -1,0 +1,29 @@
+appId: com.ruralnerd.com.RickAndMortyTex
+---
+
+# preconditions
+- launchApp
+
+# Step 1
+- assertVisible:
+    id: "character_list"
+
+# Step 2
+- repeat:
+    while:
+      notVisible: "Baby Wizard"
+    commands:
+      - swipe:
+          direction: UP
+
+# Step 3
+- tapOn: "Baby Wizard"
+
+# Step 4
+- assertVisible:
+    id: "character_detail"
+
+- assertVisible: "Baby Wizard"
+
+# Teardown
+- stopApp

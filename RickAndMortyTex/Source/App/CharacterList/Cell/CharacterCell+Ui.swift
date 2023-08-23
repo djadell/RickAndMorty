@@ -23,7 +23,8 @@ extension CharacterCell { final class Ui {
         
         superview.configure(shadowView) {
             
-            $0.backgroundColor = .n30
+            $0.backgroundColor = .n30.withAlphaComponent(0.2)
+            
             $0.layer.cornerRadius = 8
             $0.layer.shadowOffset = .zero
             $0.layer.shadowColor = UIColor.black.cgColor
@@ -41,6 +42,7 @@ extension CharacterCell { final class Ui {
             $0.contentMode = .scaleAspectFill
             $0.layer.masksToBounds = true
             $0.layer.cornerRadius = 8
+            $0.alpha = 0.0
 
             $1.edges.equalToSuperview()
             
@@ -56,6 +58,7 @@ extension CharacterCell { final class Ui {
             gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
             gradientLayer.locations = [0,1]
             gradientLayer.frame = superview.bounds
+            
             $0.layer.addSublayer(gradientLayer)
             
             $1.edges.equalToSuperview()

@@ -39,6 +39,16 @@ final class CharacterView: UIViewController, BindableView {
         ui.genderValue.text = character.gender.rawValue.localized
         ui.createdValue.text = character.created.noTimeFormat
         
+        switch character.status {
+        case .alive:
+            ui.background.image = Image.aliveBackground.image
+        case .dead:
+            ui.background.image = Image.deadBackground.image
+        case .unknown:
+            break // No background image
+        }
+        
     }
     
 }
+

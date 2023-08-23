@@ -8,6 +8,7 @@ final class CharacterCell: UICollectionViewCell {
     
     // MARK: LifeCycle
     override func prepareForReuse() {
+        ui.imageView.alpha = 0.0
         ui.imageView.image = nil
         ui.nameLabel.text = nil
         ui.spinner.startSpinning()
@@ -24,6 +25,10 @@ final class CharacterCell: UICollectionViewCell {
             self?.ui.spinner.stopAnimating()
             self?.ui.spinner.isHidden = true
         }
+        
+        UIViewPropertyAnimator(duration: 1.0, curve: .easeInOut, animations: {
+            self.ui.imageView.alpha = 1.0
+        }).startAnimation()
         
     }
     

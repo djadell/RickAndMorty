@@ -4,6 +4,8 @@ enum Image: String {
     
     case spinner
     case empty
+    case aliveBackground
+    case deadBackground
     
     var image: UIImage {
         return image(color: nil)

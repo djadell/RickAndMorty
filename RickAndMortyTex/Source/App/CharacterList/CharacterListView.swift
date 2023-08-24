@@ -118,8 +118,14 @@ extension CharacterListView: UICollectionViewDataSource {
 extension CharacterListView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let character = characters[indexPath.item]
-        output.onCharacterSelected(character)
+        
+        Task { [weak self] in
+            try await Task.sleep(seconds: 0.5)
+            self?.output.onCharacterSelected(character)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

@@ -13,6 +13,17 @@ final class CharacterCell: UICollectionViewCell {
         ui.spinner.startSpinning()
     }
     
+    override var isSelected: Bool {
+        
+        didSet {
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+                self.layer.zPosition = self.isSelected ? 1 : -1
+                self.transform = self.isSelected ? CGAffineTransform(scaleX: 1.1, y: 1.1) : CGAffineTransform.identity
+            }, completion: nil)
+        }
+        
+    }
+    
     // MARK: Public methods
     func configure(name: String, imagePath: String) {
         

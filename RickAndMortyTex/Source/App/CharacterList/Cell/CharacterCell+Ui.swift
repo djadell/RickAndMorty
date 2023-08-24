@@ -42,7 +42,6 @@ extension CharacterCell { final class Ui {
             $0.contentMode = .scaleAspectFill
             $0.layer.masksToBounds = true
             $0.layer.cornerRadius = 8
-            $0.alpha = 0.0
 
             $1.edges.equalToSuperview()
             

@@ -180,6 +180,15 @@ final class CharacterListViewTests: XCTestCase {
         waitForExpectations(timeout: 1)
         
         didSelectedItem(in: sut.ui.collectionView, item: 1)
+        // Wait the animation execution
+        let expectation = XCTestExpectation(description: "doesn't timeout")
+
+        Task{
+            try await Task.sleep(seconds: 0.5)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1)
         XCTAssertEqual(controller.characterSelected?.id, 2)
         
     }

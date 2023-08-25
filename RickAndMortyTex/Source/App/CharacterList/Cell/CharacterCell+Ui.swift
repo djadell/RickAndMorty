@@ -19,7 +19,13 @@ extension CharacterCell { final class Ui {
     
     init(_ superview: UIView) {
         
-        superview.backgroundColor = .white
+        superview.backgroundColor = .clear
+        // cell shadow
+        superview.layer.shadowOpacity = 0.2
+        superview.layer.shadowOffset = CGSize(width: 0, height: 2)
+        superview.layer.shadowRadius = 4
+        superview.layer.shadowColor = UIColor.black.cgColor
+        superview.layer.masksToBounds = false
         
         superview.configure(shadowView) {
             
@@ -42,7 +48,6 @@ extension CharacterCell { final class Ui {
             $0.contentMode = .scaleAspectFill
             $0.layer.masksToBounds = true
             $0.layer.cornerRadius = 8
-            $0.alpha = 0.0
 
             $1.edges.equalToSuperview()
             

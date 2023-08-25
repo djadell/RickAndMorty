@@ -1,6 +1,6 @@
 import UIKit
 
-private let collectionCellSize = CGSize(width: 200, height: 250)
+private let collectionCellSize = CGSize(width: 200, height: 220)
 
 extension CharacterListView { final class Ui {
     
@@ -59,7 +59,7 @@ extension CharacterListView { final class Ui {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: width, height: 250)
+        layout.itemSize = CGSize(width: width, height: 220)
         
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
         

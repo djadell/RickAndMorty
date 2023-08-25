@@ -8,10 +8,20 @@ final class CharacterCell: UICollectionViewCell {
     
     // MARK: LifeCycle
     override func prepareForReuse() {
-        ui.imageView.alpha = 0.4
         ui.imageView.image = nil
         ui.nameLabel.text = nil
         ui.spinner.startSpinning()
+    }
+    
+    override var isSelected: Bool {
+        
+        didSet {
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+                self.layer.zPosition = self.isSelected ? 1 : -1
+                self.transform = self.isSelected ? CGAffineTransform(scaleX: 1.1, y: 1.1) : CGAffineTransform.identity
+            }, completion: nil)
+        }
+        
     }
     
     // MARK: Public methods
@@ -25,10 +35,6 @@ final class CharacterCell: UICollectionViewCell {
             self?.ui.spinner.stopAnimating()
             self?.ui.spinner.isHidden = true
         }
-        
-        UIViewPropertyAnimator(duration: 1.0, curve: .easeInOut, animations: {
-            self.ui.imageView.alpha = 1.0
-        }).startAnimation()
         
     }
     

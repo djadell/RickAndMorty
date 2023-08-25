@@ -6,6 +6,8 @@ final class CharacterListView: UIViewController, BindableView {
     private(set) lazy var ui = { Ui(self.view) }()
     private let output: CharacterListInput
     private var characters: [Character] = []
+    private let animationDuration: Double = 1.0
+    private let delayBase: Double = 1.0
     
     // MARK: Initializer
     init(input: CharacterListModel, output: CharacterListInput) {
@@ -104,6 +106,7 @@ extension CharacterListView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        cell.alpha = 0.2
         let character = characters[indexPath.item]
         cell.configure(name: character.name, imagePath: character.image)
         return cell
@@ -115,8 +118,23 @@ extension CharacterListView: UICollectionViewDataSource {
 extension CharacterListView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let character = characters[indexPath.item]
-        output.onCharacterSelected(character)
+        
+        Task { [weak self] in
+            try await Task.sleep(seconds: 0.5)
+            self?.output.onCharacterSelected(character)
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        let delay = sqrt(Double(indexPath.row)) * delayBase / 4
+        UIView.animate(withDuration: animationDuration, delay: delay, options: .curveEaseOut, animations: {
+            cell.alpha = 1
+        })
+        
     }
     
 }

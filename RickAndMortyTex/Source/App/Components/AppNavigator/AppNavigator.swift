@@ -2,6 +2,7 @@ import UIKit
 
 final class AppNavigator: IAppNavigator {
     
+    @MainActor
     func toCharacterDetailView(_ character: Character) {
         let characterView = CharacterView.Factory().create(character: character)
         push(viewController: characterView)

@@ -11,19 +11,21 @@ appId: com.ruralnerd.com.RickAndMortyTex
 # Step 2
 - repeat:
     while:
-      notVisible: "Baby Wizard"
+      notVisible: "Artist Morty"
     commands:
       - swipe:
           direction: UP
+      - waitForAnimationToEnd:
+          timeout: 700 
 
 # Step 3
-- tapOn: "Baby Wizard"
+- tapOn: "Artist Morty"
 
 # Step 4
 - assertVisible:
     id: "character_detail"
 
-- assertVisible: "Baby Wizard"
+- assertVisible: "Artist Morty"
 
 # Teardown
 - stopApp
